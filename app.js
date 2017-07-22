@@ -1,10 +1,3 @@
-
-/**
-	* Node.js Login Boilerplate
-	* More Info : http://kitchen.braitsch.io/building-a-login-system-in-node-js-and-mongodb/
-	* Copyright (c) 2013-2016 Stephen Braitsch
-**/
-
 var http = require('http');
 var express = require('express');
 var session = require('express-session');
@@ -33,7 +26,7 @@ var dbName = process.env.DB_NAME || 'node-login';
 
 var dbURL = 'mongodb://'+dbHost+':'+dbPort+'/'+dbName;
 if (app.get('env') == 'live'){
-// prepend url with authentication credentials // 
+// prepend url with authentication credentials //
 	dbURL = 'mongodb://'+process.env.DB_USER+':'+process.env.DB_PASS+'@'+dbHost+':'+dbPort+'/'+dbName;
 }
 
@@ -46,8 +39,33 @@ app.use(session({
 	})
 );
 
-require('./app/server/routes')(app);
+app.use(express.static('public'))
 
-http.createServer(app).listen(app.get('port'), function(){
-	console.log('Express server listening on port ' + app.get('port'));
-});
+
+app.get('/', (req, res) =>{
+    res.render('index')
+})
+
+app.get('/insured/submit_policy', (req, res) => {
+    // insured submits a policy
+})
+
+app.get('/insured/accept_policy', (req, res) => {
+    // insured submits a price after valuation of policy
+})
+
+app.get('/insurer/submit_price', (req, res) => {
+    // insured accepts the policy
+})
+
+app.get('/insurer/action', (req, res) => {
+    // insurer accepts, denies or sumbits to review a given claim
+})
+
+app.get('/expert/action', (req, res) => {
+    // expert begins investigation or declines
+})
+
+app.get('/claimant/make_claim', (req, res) => {
+    // claimant makes a claim
+})

@@ -1,16 +1,26 @@
 {
-  "name": "break the block",
-  "version": "0.0.1",
-  "description": "Block chain hackathon project",
-  "author": "VladWulf and Ash Chauhan",
-  "website": {
-    "url": "https://github.com/VladWulf/break_the_block"
+  "name": "break_the_block",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:braitsch/node-login.git"
+    "url": "git+https://github.com/VladWulf/break_the_block.git"
   },
+  "keywords": [],
+  "author": "VladWulf and Ash Chauhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VladWulf/break_the_block/issues"
+  },
+  "homepage": "https://github.com/VladWulf/break_the_block#readme",
   "dependencies": {
+    "express": "^4.15.3",
+    "web3": "^1.0.0-beta.5",
     "body-parser": "1.14.1",
     "connect-mongo": "0.8.2",
     "cookie-parser": "1.4.0",
@@ -22,11 +32,5 @@
     "moment": "2.10.3",
     "mongodb": "2.0.45",
     "stylus": "0.52.4"
-  },
-  "engines": {
-    "node": "4.2.1"
-  },
-  "scripts": {
-    "start": "node app.js"
   }
 }
